@@ -60,10 +60,41 @@ CHALLENGE 2: ARRAY CHUNKING
 // ex. chunkArray([1, 2, 3, 4, 5, 6, 7], 2) === [[1, 2],[3, 4],[5, 6],[7]]
 
 const chunkArray = (arr, len) => {
-   
+//     // SOLUTION 1
+
+//    // Initilaze chunked arr
+//    const chunkedArr = [];
+//    // Set index for loop
+//    let i = 0
+//    // Loop while index is less than the array length
+//    while(i < arr.length) {
+//        // Slice out form the index to the index + the chunk length and push on to the chunked array.
+//        chunkedArr.push(arr.slice(i, i + len));
+//        // increment by chunked length.
+//        i += len;
+//    }
+//    return chunkedArr
+
+
+    // Solution 2
+    // Init chunked arr
+    const chunkedArr = []
+    // Loop through arr
+    arr.forEach(function(val) {
+        // Get last element
+        const last = chunkedArr[chunkedArr.length - 1];
+        
+        // Check if last and if last length is equal to the chunked len
+        if(!last || last.length === len) {
+            chunkedArr.push([val]);
+        } else {
+            last.push(val);
+        }
+    })
+    return chunkedArr;
 }
-log(chunkArray([1, 2, 3, 4, 5, 6, 7], 3)) // === [[1, 2, 3],[4, 5, 6],[7]])
-// log(chunkArray([1, 2, 3, 4, 5, 6, 7], 2) // === [[1, 2],[3, 4],[5, 6],[7]])
+// log(chunkArray([1, 2, 3, 4, 5, 6, 7], 3)) // === [[1, 2, 3],[4, 5, 6],[7]])
+log(chunkArray([1, 2, 3, 4, 5, 6, 7], 2)) // === [[1, 2],[3, 4],[5, 6],[7]])
 
 
 
