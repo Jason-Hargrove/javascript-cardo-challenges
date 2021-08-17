@@ -23,12 +23,12 @@ const longestWord = (sen) => {
     const longestWordArr = sorted.filter(function(word) {
         return word.length === sorted[0].length
     })
+    return longestWordArr
     if (longestWordArr.length === 1) {
         return longestWordArr[0];
     } else {
         return longestWordArr
     }
-
     // SOLUTION 1 - Return a single longest word
     //Sort by length. I want the longest word at the begining.
   
@@ -42,10 +42,8 @@ const longestWord = (sen) => {
 
     // SOLUTION 3 - Only return an array if multiple words, otherwise return a string
     // Check if more thatn one array val
- 
-  
 }
-console.log(longestWord('Hi ther, my name is Jason'))
+console.log(longestWord('Hi! That sound, great Jason!'))
 // Testing SOLUTION 3
 // console.log(longestWord('Helloo there, my name is Jason'))
 
@@ -60,7 +58,7 @@ CHALLENGE 2: ARRAY CHUNKING
 // ex. chunkArray([1, 2, 3, 4, 5, 6, 7], 2) === [[1, 2],[3, 4],[5, 6],[7]]
 
 const chunkArray = (arr, len) => {
-//     // SOLUTION 1
+// SOLUTION 1
 
 //    // Initilaze chunked arr
 //    const chunkedArr = [];
@@ -75,8 +73,8 @@ const chunkArray = (arr, len) => {
 //    }
 //    return chunkedArr
 
+// Solution 2
 
-    // Solution 2
     // Init chunked arr
     const chunkedArr = []
     // Loop through arr
@@ -106,7 +104,21 @@ CHALLENGE 3: FLATTEN ARRAY
 // Take an array of arrays and flatten to a single array
 // ex. [[1, 2], [3, 4], [5, 6], [7]] = [1, 2, 3, 4, 5, 6, 7]
 
-function flattenArray(arrays) {}
+const flattenArray = (arrays) => {
+    // SOLUTION 1 using reduce.
+    // In reduce a is the starting point. b concatinates.
+    // return arrays.reduce(function(a, b) {
+    //     return a.concat(b);
+    // });
+
+    // SOLUTION 2
+    // Using apply method.
+    // return [].concat.apply([], arrays)
+
+    // SOLUTION 3
+    return [].concat(...arrays);
+}
+log(flattenArray([[1, 2], [3, 4], [5, 6], [7]]))
 
 
 // ==================== 4. ====================
